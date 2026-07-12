@@ -1,0 +1,29 @@
+<mat-toolbar color="primary">
+  <span>Pokedex</span>
+  <span class="spacer"></span>
+  <button mat-icon-button (click)="themeService.toggleTheme()">
+    <mat-icon>{{ themeService.isDark() ? 'light_mode' : 'dark_mode' }}</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened>
+    <mat-nav-list>
+      <a
+        mat-list-item
+        routerLink="/"
+        routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        Home
+      </a>
+      <a mat-list-item routerLink="/pokemon" routerLinkActive="active-link">
+        List Pokemon
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet />
+  </mat-sidenav-content>
+</mat-sidenav-container>

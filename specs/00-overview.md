@@ -11,7 +11,8 @@ Build an Angular project (version 21, standalone components, no NgModules) that 
 - `HttpClient` configured via `provideHttpClient()` in `app.config.ts`.
 - Routing via `provideRouter()` / `app.routes.ts`, using `RouterLink` and `router-outlet`.
 - Organized by feature folders:
-  - `core/services/` (for `ThemeService` and `PokemonService`)
+  - `core/services/` (for `ThemeService`)
+  - `pokemon/` (for `PokemonService`, `pokemon.model`, `pokemon-list/`, `pokemon-detail/`)
   - `layout/`
   - `home/`
   - `pokemon-list/`

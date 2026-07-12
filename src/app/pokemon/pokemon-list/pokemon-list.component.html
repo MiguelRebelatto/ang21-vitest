@@ -1,0 +1,27 @@
+@if (loading) {
+  <div class="center">
+    <mat-spinner />
+  </div>
+}
+
+@if (error) {
+  <div class="center">
+    <mat-card appearance="outlined" color="warn">
+      <mat-card-content>Could not load the list.</mat-card-content>
+    </mat-card>
+  </div>
+}
+
+@if (!loading && !error) {
+  <div class="grid">
+    @for (p of pokemons; track p.name) {
+      <a class="card-link" [routerLink]="['/pokemon', p.name]">
+        <mat-card>
+          <mat-card-content>
+            {{ p.name | titlecase }}
+          </mat-card-content>
+        </mat-card>
+      </a>
+    }
+  </div>
+}

@@ -7,7 +7,7 @@ Centralize every HTTP call to the PokéAPI in a single service, so components ne
 ## Service
 
 - Name: `PokemonService`
-- Location: `src/app/core/services/pokemon.service.ts` (or `src/app/pokemon/pokemon.service.ts`)
+- Location: `src/app/pokemon/pokemon.service.ts`
 - Decorated with `@Injectable({ providedIn: 'root' })`
 
 ## Required methods
@@ -28,7 +28,7 @@ Centralize every HTTP call to the PokéAPI in a single service, so components ne
 
 ## Typing (suggested interfaces)
 
-Create a `pokemon.model.ts` file with at least:
+Create a `src/app/pokemon/pokemon.model.ts` file with at least:
 
 ```typescript
 export interface PokemonListItem {

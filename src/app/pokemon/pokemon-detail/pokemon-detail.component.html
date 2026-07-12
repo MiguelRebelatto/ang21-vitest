@@ -1,0 +1,59 @@
+<div class="detail-container">
+  @if (loading) {
+    <div class="center">
+      <mat-spinner />
+    </div>
+  }
+
+  @if (error) {
+    <div class="center">
+      <mat-card appearance="outlined">
+        <mat-card-content>
+          Could not load pokemon details.
+        </mat-card-content>
+        <mat-card-actions>
+          <a mat-button routerLink="/pokemon">
+            <mat-icon>arrow_back</mat-icon>
+            Back to list
+          </a>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  }
+
+  @if (pokemon && !loading) {
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ pokemon.name | titlecase }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="detail-content">
+          @if (pokemon.sprites.front_default) {
+            <img
+              [src]="pokemon.sprites.front_default"
+              [alt]="pokemon.name"
+              class="sprite"
+            />
+          }
+          <div class="stats">
+            <p><strong>Height:</strong> {{ pokemon.height }}</p>
+            <p><strong>Weight:</strong> {{ pokemon.weight }}</p>
+          </div>
+          <div class="types">
+            <mat-chip-set>
+              @for (t of pokemon.types; track t.slot) {
+                <mat-chip>{{ t.type.name }}</mat-chip>
+              }
+            </mat-chip-set>
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <a mat-button routerLink="/pokemon">
+          <mat-icon>arrow_back</mat-icon>
+          Back to list
+        </a>
+      </mat-card-actions>
+    </mat-card>
+  }
+</div>
